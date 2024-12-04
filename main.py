@@ -16,12 +16,12 @@ class Dialog_taskmaker(QDialog):
         self.month_lineEdit.setText(str(dates[1]))
         self.day_lineEdit.setText(str(dates[2]))
 
-
     def closing(self):
         self.close()
 
     def commiting(self):
         print(self.day_lineEdit.text())
+        print(self.timeEdit.time().hour(), self.timeEdit.time().minute())
 
 
 class tasks_list_Dialog(QDialog):
@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         self.checkDay_pushButton.clicked.connect(self.check_day_tasks)
         self.deleting_pushButton.clicked.connect(self.deleting)
         self.button_showList.clicked.connect(self.open_tasks_list)
-        
+
     def adding_task(self):
         print(52)
         date_object = self.calendarWidget.selectedDate()
@@ -57,10 +57,12 @@ class MainWindow(QMainWindow):
     def deleting(self):
         print("deleting")
         # print(self.listWidget.currentItem().text())
+
     def open_tasks_list(self):
         print("tasks_list")
         dil = tasks_list_Dialog(self)
         dil.exec()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
