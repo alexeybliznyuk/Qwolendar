@@ -1,0 +1,6 @@
+CREATE TABLE Tasks
+(
+    datee TEXT,
+    timee TEXT,
+    labell TEXT
+);
