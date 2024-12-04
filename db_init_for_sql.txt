@@ -12,3 +12,36 @@ CREATE TABLE Tasks (
     timee  TEXT,
     labell TEXT
 );
+
+
+/// updated (fixed id increasing)
+
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM Tasks;
+
+DROP TABLE Tasks;
+
+CREATE TABLE Tasks (
+    id     INTEGER PRIMARY KEY ASC AUTOINCREMENT,
+    datee  TEXT,
+    timee  TEXT,
+    labell TEXT
+);
+
+INSERT INTO Tasks (
+                      id,
+                      datee,
+                      timee,
+                      labell
+                  )
+                  SELECT id,
+                         datee,
+                         timee,
+                         labell
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
