@@ -4,3 +4,11 @@ CREATE TABLE Tasks
     timee TEXT,
     labell TEXT
 );
+
+/// updated
+CREATE TABLE Tasks (
+    id          PRIMARY KEY,
+    datee  TEXT,
+    timee  TEXT,
+    labell TEXT
+);
